@@ -1,0 +1,50 @@
+<div style="padding: 20px; border: 1px solid #ccc; border-radius: 8px;">
+  <h2>Lab Entry Notebook</h2>
+
+  <!-- Inputs -->
+  <div style="margin-bottom: 10px;">
+    <label><strong>Observation:</strong> </label>
+    <br>
+    <label>Exercise Date:</label>
+    <input type="date" [(ngModel)]="currentEntry.obsDate">
+    <br>
+      <label>Exercise marks:</label>
+    <input type="number" [(ngModel)]="currentEntry.obsMarks" placeholder="Marks">
+  </div>
+
+  <div style="margin-bottom: 10px;">
+      <label><strong>Manual:</strong> </label>
+    <br>
+        <label>Exercise Date:</label>
+    <input type="date" [(ngModel)]="currentEntry.manualDate">
+        <br>
+      <label>Exercise marks:</label>
+    <input type="number" [(ngModel)]="currentEntry.manualMarks" placeholder="Marks">
+  </div>
+
+  <button (click)="addEntry()">Add Entry</button>
+
+  <hr>
+
+  <!-- Table -->
+  <table border="1" style="width: 100%; border-collapse: collapse; margin-top: 20px;">
+    <thead>
+      <tr style="background-color: #f2f2f2;">
+        <th>Ex.No</th>
+        <th>Obs Date</th>
+        <th>Obs Marks</th>
+        <th>Manual Date</th>
+        <th>Manual Marks</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let entry of entries ; let i = index">
+        <td>{{i+1}}</td>
+        <td>{{ entry.obsDate }}</td>
+        <td>{{ entry.obsMarks }}</td>
+        <td>{{ entry.manualDate }}</td>
+        <td>{{ entry.manualMarks }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
